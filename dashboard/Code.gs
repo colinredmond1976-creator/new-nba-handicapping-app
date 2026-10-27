@@ -1,4 +1,4 @@
-const PAYLOAD_URL = 'https://raw.githubusercontent.com/colinredmond1976-creator/new-nba-handicapping-app/main/data/dashboard_payload.json';
+const PAYLOAD_URL = 'https://raw.githubusercontent.com/colinredmond1976-creator/new-nba-handicapping-app/refs/heads/main/data/dashboard_payload.json';
 const CACHE_KEY = 'dashboard_payload';
 
 function doGet(e) {
