@@ -1,0 +1,25 @@
+[build-system]
+requires = ["setuptools>=69"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "nba-handicap"
+version = "0.1.0"
+description = "NBA handicapping application using the Tank01 RapidAPI feed"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "httpx",
+    "beautifulsoup4",
+    "pydantic",
+    "python-dotenv",
+]
+
+[project.optional-dependencies]
+test = ["pytest"]
+
+[project.scripts]
+nba-handicap = "nba_handicap.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
