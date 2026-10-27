@@ -8,7 +8,7 @@ function doGet(e) {
 function getDashboardData() {
   const cache = CacheService.getScriptCache();
   try {
-    const response = UrlFetchApp.fetch(PAYLOAD_URL, {muteHttpExceptions: true});
+    const response = UrlFetchApp.fetch(PAYLOAD_URL + '?t=' + Date.now(), {muteHttpExceptions: true});
     if (response.getResponseCode() !== 200) throw new Error('Payload request failed: HTTP ' + response.getResponseCode());
     const raw = response.getContentText();
     const payload = JSON.parse(raw);
