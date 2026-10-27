@@ -1,12 +1,12 @@
 {
   "heartbeat": {
-    "run_id": "277b9bfb-eab1-4ba1-b24f-3c679a4f9ec4",
-    "timestamp_utc": "2026-10-27T17:14:52.791738Z",
+    "run_id": "c6071b87-f59c-4952-98b6-09d44d0029a2",
+    "timestamp_utc": "2026-10-27T19:26:44.387999Z",
     "status": "SUCCESS",
     "games_processed": 4,
     "legs_graded": 0,
     "discrepancies_flagged": 0,
-    "message": "Completed"
+    "message": "Completed; reused 4 existing cards"
   },
   "summary": {
     "total_picks": 16,
