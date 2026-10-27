@@ -41,6 +41,15 @@ class Database:
     def close(self) -> None:
         self.connection.close()
 
+    def has_daily_card(self, game_id: str, game_date: date | str) -> bool:
+        count = self.connection.execute(
+            "SELECT COUNT(*) FROM picks WHERE game_id = ? AND game_date = ?",
+            (game_id, str(game_date)),
+        ).fetchone()[0]
+        if count not in (0, 4):
+            raise ValueError(f"Incomplete existing card for game {game_id}")
+        return count == 4
+
     def save_daily_cards(self, cards: list[GameCard]) -> None:
         with self.connection:
             for card in cards:

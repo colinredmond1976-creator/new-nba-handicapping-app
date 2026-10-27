@@ -84,3 +84,25 @@ def test_pipeline_end_to_end(tmp_path):
     assert len(payload["todays_cards"]) == 1
     assert len(payload["todays_cards"][0]["legs"]) == 4
     assert len(payload["history"]) == 8
+
+
+def test_same_day_rerun_reuses_existing_card(tmp_path):
+    day = date(2026, 10, 27)
+    db_path = str(tmp_path / 'picks.sqlite')
+    output = tmp_path / 'dashboard_payload.json'
+    candidates = [make_leg(day, 'game', n) for n in range(4)]
+
+    def provider(_):
+        return [{'game_id': 'game', 'away_team': 'Away', 'home_team': 'Home',
+                 'candidates': candidates}]
+
+    first = run_daily_pipeline(db_path, str(output), day.isoformat(), candidate_provider=provider)
+    initial = json.loads(output.read_text())
+    candidates.clear()
+    second = run_daily_pipeline(db_path, str(output), day.isoformat(), candidate_provider=provider)
+    rerun = json.loads(output.read_text())
+    assert first.status == second.status == 'SUCCESS'
+    assert second.games_processed == 1
+    assert second.message == 'Completed; reused 1 existing cards'
+    assert rerun['todays_cards'] == initial['todays_cards']
+    assert rerun['history'] == initial['history']

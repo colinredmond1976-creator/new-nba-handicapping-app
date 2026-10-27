@@ -23,6 +23,7 @@ def run_daily_pipeline(db_path: str, output_json_path: str, run_date: str, *,
     discrepancy_count = 0
     games_processed = 0
     completed = 0
+    reused_cards = 0
     owned_clients = []
     try:
         if candidate_provider is None:
@@ -69,6 +70,11 @@ def run_daily_pipeline(db_path: str, output_json_path: str, run_date: str, *,
             games = candidate_provider(day.isoformat())
             for game in games:
                 try:
+                    if db.has_daily_card(game["game_id"], day):
+                        games_processed += 1
+                        completed += 1
+                        reused_cards += 1
+                        continue
                     card = select_four_legs_for_game(
                         game["game_id"], day.isoformat(), game["away_team"],
                         game["home_team"], game["candidates"],
@@ -88,7 +94,7 @@ def run_daily_pipeline(db_path: str, output_json_path: str, run_date: str, *,
             run_id=str(uuid4()), timestamp_utc=datetime.now(timezone.utc), status=status,
             games_processed=games_processed, legs_graded=graded_count,
             discrepancies_flagged=discrepancy_count,
-            message="; ".join(errors) if errors else ("Discrepancies flagged" if discrepancy_count else "Completed"),
+            message="; ".join(errors) if errors else ("Discrepancies flagged" if discrepancy_count else (f"Completed; reused {reused_cards} existing cards" if reused_cards else "Completed")),
         )
         db.record_heartbeat(heartbeat)
         db.export_dashboard_json(output_json_path, game_date=day)
