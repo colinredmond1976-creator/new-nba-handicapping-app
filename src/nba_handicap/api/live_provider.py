@@ -58,7 +58,10 @@ class Tank01CandidateProvider:
                 raise ValueError(f"No Tank01 player name for {player_id}")
             markets = prop.get("propBets", {})
             for field, stat in (("pts", "PTS"), ("reb", "REB"), ("ast", "AST"),
-                                ("ptsrebast", "PRA"), ("threes", "3PM")):
+                                ("ptsrebast", "PRA"), ("threes", "3PM"),
+                                ("ptsast", "PTS_AST"), ("ptsreb", "PTS_REB"),
+                                ("rebast", "REB_AST"), ("stl", "STL"),
+                                ("blk", "BLK"), ("stlblk", "STL_BLK")):
                 if not all(key in markets for key in (field, field + "Over", field + "Under")):
                     continue
                 try:

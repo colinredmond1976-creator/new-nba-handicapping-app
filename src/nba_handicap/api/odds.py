@@ -49,7 +49,8 @@ def extract_tank01_stats(box_score_payload: dict) -> dict:
         name = player.get("longName")
         if not name:
             continue
-        fields = {"PTS": "pts", "REB": "reb", "AST": "ast", "3PM": "tptfgm"}
+        fields = {"PTS": "pts", "REB": "reb", "AST": "ast", "3PM": "tptfgm",
+                  "STL": "stl", "BLK": "blk"}
         stats = {}
         for label, field in fields.items():
             value = player.get(field)
@@ -57,5 +58,9 @@ def extract_tank01_stats(box_score_payload: dict) -> dict:
                 stats[label] = int(value)
         if all(key in stats for key in ("PTS", "REB", "AST")):
             stats["PRA"] = stats["PTS"] + stats["REB"] + stats["AST"]
+        for label, first, second in (("PTS_AST", "PTS", "AST"), ("PTS_REB", "PTS", "REB"),
+                                     ("REB_AST", "REB", "AST"), ("STL_BLK", "STL", "BLK")):
+            if first in stats and second in stats:
+                stats[label] = stats[first] + stats[second]
         result["players"][normalize_name(name)] = stats
     return result

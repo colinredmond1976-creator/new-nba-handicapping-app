@@ -61,10 +61,18 @@ def parse_box_score_html(html: str) -> dict:
                 continue
             cells = {key: row.select_one(f'td[data-stat="{source}"]') for key, source in
                      (("PTS", "pts"), ("REB", "trb"), ("AST", "ast"), ("3PM", "fg3"))}
-            if any(cell is None or not cell.get_text(strip=True).isdigit() for cell in cells.values()):
-                continue
-            stats = {key: int(cell.get_text(strip=True)) for key, cell in cells.items()}
-            stats["PRA"] = stats["PTS"] + stats["REB"] + stats["AST"]
+            stats = {key: int(cell.get_text(strip=True)) for key, cell in cells.items()
+                     if cell and cell.get_text(strip=True).isdigit()}
+            if all(key in stats for key in ("PTS", "REB", "AST")):
+                stats["PRA"] = stats["PTS"] + stats["REB"] + stats["AST"]
+            for label, source in (("STL", "stl"), ("BLK", "blk")):
+                cell = row.select_one(f'td[data-stat="{source}"]')
+                if cell and cell.get_text(strip=True).isdigit():
+                    stats[label] = int(cell.get_text(strip=True))
+            for label, first, second in (("PTS_AST", "PTS", "AST"), ("PTS_REB", "PTS", "REB"),
+                                         ("REB_AST", "REB", "AST"), ("STL_BLK", "STL", "BLK")):
+                if first in stats and second in stats:
+                    stats[label] = stats[first] + stats[second]
             result["players"][normalize_name(player.get_text(strip=True))] = stats
     return result
 

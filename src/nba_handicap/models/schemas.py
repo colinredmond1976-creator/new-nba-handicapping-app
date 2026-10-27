@@ -17,6 +17,12 @@ class StatCategory(str, Enum):
     AST = "AST"
     PRA = "PRA"
     THREE_PM = "3PM"
+    POINTS_ASSISTS = "PTS_AST"
+    POINTS_REBOUNDS = "PTS_REB"
+    REBOUNDS_ASSISTS = "REB_AST"
+    STEALS = "STL"
+    BLOCKS = "BLK"
+    STEALS_BLOCKS = "STL_BLK"
 
 
 class Side(str, Enum):

@@ -98,3 +98,26 @@ def test_bref_game_id_resolver():
     assert resolve_bref_boxscore_url("20261027_DET@NY").endswith("202610270NYK.html")
     with pytest.raises(ValueError):
         resolve_bref_boxscore_url("invalid")
+
+
+def test_all_supplied_two_sided_prop_categories_are_candidates():
+    from nba_handicap.api.live_provider import Tank01CandidateProvider
+
+    markets = {}
+    for field in ('pts', 'reb', 'ast', 'ptsast', 'ptsreb', 'rebast', 'ptsrebast', 'threes', 'stl', 'blk', 'stlblk'):
+        markets.update({field: '1.5', field + 'Over': '-110', field + 'Under': '-110'})
+    game = {'gameID': '20261027_BKN@BOS', 'gameDate': '20261027', 'awayTeam': 'BKN',
+            'homeTeam': 'BOS', 'playerProps': [{'playerID': '1', 'propBets': markets}]}
+
+    class Client:
+        def get_betting_odds(self, day):
+            return {'body': [game]}
+
+        def get_player_list(self):
+            return {'body': [{'playerID': '1', 'longName': 'Player'}]}
+
+    legs = Tank01CandidateProvider(Client())('2026-10-27')[0]['candidates']
+    assert {leg.stat_category.value for leg in legs} == {
+        'PTS', 'REB', 'AST', 'PRA', '3PM', 'PTS_AST', 'PTS_REB', 'REB_AST', 'STL', 'BLK', 'STL_BLK',
+    }
+    assert len(legs) == 22

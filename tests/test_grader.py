@@ -70,3 +70,31 @@ def test_clients_without_network(monkeypatch):
     client.close()
     with pytest.raises(ValueError):
         BRefBoxScoreClient(min_interval_sec=3)
+
+
+@pytest.mark.parametrize('category,expected', [
+    ('PTS_AST', 35), ('PTS_REB', 38), ('REB_AST', 17),
+    ('STL', 2), ('BLK', 1), ('STL_BLK', 3),
+])
+def test_combined_and_defensive_props_grade_from_both_sources(category, expected):
+    html = HTML.replace('</tr></tbody></table>',
+                        '<td data-stat="stl">2</td><td data-stat="blk">1</td></tr></tbody></table>')
+    tank = extract_tank01_stats({'body': {'playerStats': {'1': {
+        'longName': 'Luka Dončić', 'pts': '28', 'reb': '10', 'ast': '7',
+        'tptfgm': '3', 'stl': '2', 'blk': '1',
+    }}}})
+    bref = parse_box_score_html(html)
+    graded = grade_leg(leg(stat_category=category, line=expected - 0.5), tank, bref)
+    assert graded.tank01_actual == expected
+    assert graded.bref_actual == expected
+    assert graded.status == 'WON'
+    assert graded.verification_status == 'CONFIRMED'
+
+
+def test_partial_box_scores_preserve_available_stats():
+    html = HTML.replace('<td data-stat="fg3">3</td>', '')
+    bref = parse_box_score_html(html)
+    graded = grade_leg(leg(), {'players': {'luka doncic': {'PTS': 28}}}, bref)
+    assert graded.status == 'WON'
+    assert graded.verification_status == 'CONFIRMED'
+    assert '3PM' not in bref['players']['luka doncic']

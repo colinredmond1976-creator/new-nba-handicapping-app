@@ -36,7 +36,7 @@
     function actual(value) { return value == null ? '—' : String(value); }
     function odds(value) { return value > 0 ? '+' + value : String(value); }
     function badge(value) { return el('span', value, 'badge' + (value === 'DISCREPANCY' || value === 'FAILED' ? ' bad' : value === 'PARTIAL' || value === 'UNVERIFIED' ? ' warn' : '')); }
-    function statLabel(stat) { return ({PTS:'Points', REB:'Rebounds', AST:'Assists', PRA:'Points + rebounds + assists', '3PM':'Three-pointers made'})[stat] || stat || 'Unknown stat'; }
+    function statLabel(stat) { return ({PTS:'Points', REB:'Rebounds', AST:'Assists', PRA:'Points + rebounds + assists', '3PM':'Three-pointers made', PTS_AST:'Points + assists', PTS_REB:'Points + rebounds', REB_AST:'Rebounds + assists', STL:'Steals', BLK:'Blocks', STL_BLK:'Steals + blocks'})[stat] || stat || 'Unknown stat'; }
     function selection(leg) { return leg.market_type === 'PLAYER_PROP' ? (leg.player_name || 'Unknown player') + ' · ' + statLabel(leg.stat_category) : leg.market_type.replaceAll('_', ' '); }
     function render(data) {
       const hb = data.heartbeat, banner = $('heartbeat'); banner.replaceChildren(); banner.className = 'telemetry-panel heartbeat' + (hb.status === 'FAILED' ? ' bad' : hb.status === 'PARTIAL' || hb.discrepancies_flagged ? ' warn' : '');
