@@ -37,6 +37,7 @@ class LegStatus(str, Enum):
     WON = "WON"
     LOST = "LOST"
     PUSH = "PUSH"
+    VOID = "VOID"
 
 
 class VerificationStatus(str, Enum):

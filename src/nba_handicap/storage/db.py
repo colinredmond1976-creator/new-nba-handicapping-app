@@ -72,8 +72,19 @@ class Database:
         )
         return [BetLeg.model_validate(dict(row)) for row in rows]
 
+    def get_pending_legs_through(self, game_date: date | str) -> list[BetLeg]:
+        rows = self.connection.execute(
+            "SELECT * FROM picks WHERE game_date <= ? AND status = ? ORDER BY rowid",
+            (str(game_date), LegStatus.PENDING.value),
+        )
+        return [BetLeg.model_validate(dict(row)) for row in rows]
+
     def update_graded_leg(self, leg: BetLeg) -> None:
-        if leg.tank01_actual is None or leg.bref_actual is None:
+        if leg.status == LegStatus.VOID:
+            if leg.market_type.value != "PLAYER_PROP" or leg.tank01_actual is not None or leg.bref_actual is not None:
+                raise ValueError("Void legs must be player props without actuals")
+            verification = VerificationStatus.UNVERIFIED
+        elif leg.tank01_actual is None or leg.bref_actual is None:
             verification = VerificationStatus.DISCREPANCY
         elif math.isclose(leg.tank01_actual, leg.bref_actual, rel_tol=0, abs_tol=1e-5):
             verification = VerificationStatus.CONFIRMED

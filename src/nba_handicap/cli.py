@@ -32,7 +32,7 @@ def main() -> None:
         heartbeat = run_daily_pipeline("data/nba_handicap.sqlite", "data/dashboard_payload.json",
                                        day.isoformat())
     print(f"{heartbeat.status.value}: data/dashboard_payload.json")
-    if heartbeat.status != "SUCCESS":
+    if heartbeat.status == "FAILED":
         raise SystemExit(1)
 
 

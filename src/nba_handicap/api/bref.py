@@ -59,6 +59,10 @@ def parse_box_score_html(html: str) -> dict:
             player = row.select_one('[data-stat="player"]')
             if not player:
                 continue
+            reason = row.select_one('td[data-stat="reason"]')
+            if reason and reason.get_text(strip=True).lower() in ("did not play", "did not dress", "not with team"):
+                result.setdefault("did_not_play", []).append(normalize_name(player.get_text(strip=True)))
+                continue
             cells = {key: row.select_one(f'td[data-stat="{source}"]') for key, source in
                      (("PTS", "pts"), ("REB", "trb"), ("AST", "ast"), ("3PM", "fg3"))}
             stats = {key: int(cell.get_text(strip=True)) for key, cell in cells.items()

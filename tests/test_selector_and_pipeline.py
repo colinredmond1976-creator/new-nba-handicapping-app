@@ -106,3 +106,22 @@ def test_same_day_rerun_reuses_existing_card(tmp_path):
     assert second.message == 'Completed; reused 1 existing cards'
     assert rerun['todays_cards'] == initial['todays_cards']
     assert rerun['history'] == initial['history']
+
+
+def test_cli_partial_and_failed_exit_codes(monkeypatch, capsys):
+    import sys
+    from types import SimpleNamespace
+    import pytest
+    from nba_handicap import cli
+    from nba_handicap.models.schemas import RunStatus
+
+    monkeypatch.setattr(sys, "argv", ["nba_handicap", "--date", "20261029"])
+    for status in (RunStatus.SUCCESS, RunStatus.PARTIAL, RunStatus.FAILED):
+        monkeypatch.setattr(cli, "run_daily_pipeline", lambda *args, status=status: SimpleNamespace(status=status))
+        if status == RunStatus.FAILED:
+            with pytest.raises(SystemExit) as exc:
+                cli.main()
+            assert exc.value.code == 1
+        else:
+            cli.main()
+        assert status.value in capsys.readouterr().out

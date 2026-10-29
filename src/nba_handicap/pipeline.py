@@ -36,7 +36,7 @@ def run_daily_pipeline(db_path: str, output_json_path: str, run_date: str, *,
                 owned_clients.append(bref_client)
             if bref_url_resolver is None:
                 bref_url_resolver = resolve_bref_boxscore_url
-        pending = db.get_pending_legs(day - timedelta(days=1))
+        pending = db.get_pending_legs_through(day - timedelta(days=1))
         sources = {}
         for leg in pending:
             if leg.game_id not in sources:

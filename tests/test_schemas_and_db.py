@@ -4,7 +4,7 @@ from datetime import date, datetime, timezone
 import pytest
 from pydantic import ValidationError
 
-from nba_handicap.models.schemas import BetLeg, GameCard, RunHeartbeat
+from nba_handicap.models.schemas import BetLeg, GameCard, RunHeartbeat, LegStatus, VerificationStatus
 from nba_handicap.storage.db import Database
 
 
@@ -51,5 +51,28 @@ def test_daily_cards_grading_and_export(tmp_path):
         assert len(payload["todays_cards"][0]["legs"]) == 4
         assert len(payload["history"]) == 4
         assert all(leg["verification_status"] == "CONFIRMED" for leg in payload["history"])
+    finally:
+        db.close()
+
+
+def test_void_is_persisted_and_excluded_from_roi():
+    db = Database(":memory:")
+    try:
+        day = date(2026, 10, 27)
+        legs = [BetLeg(leg_id=str(i), game_id="g", game_date=day, matchup="A @ B",
+                       market_type="PLAYER_PROP", player_name="Player", stat_category="PTS",
+                       line=20.5, side="OVER", odds_american=-110, implied_prob=0.52,
+                       model_prob=0.6, edge=0.08) for i in range(4)]
+        card = GameCard(game_id="g", game_date=day, away_team="A", home_team="B", legs=legs)
+        db.save_daily_cards([card])
+        leg = card.legs[0].model_copy(update={
+            "status": LegStatus.VOID, "verification_status": VerificationStatus.UNVERIFIED,
+        })
+        db.update_graded_leg(leg)
+        row = db.connection.execute("SELECT status, verification_status FROM picks WHERE leg_id = ?", (leg.leg_id,)).fetchone()
+        assert tuple(row) == ("VOID", "UNVERIFIED")
+        assert len(db.get_pending_legs_through(card.game_date)) == 3
+        summary = db.compute_performance_summary()
+        assert (summary.wins, summary.losses, summary.pushes, summary.net_units, summary.roi_pct) == (0, 0, 0, 0, 0)
     finally:
         db.close()

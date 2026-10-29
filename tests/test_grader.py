@@ -98,3 +98,18 @@ def test_partial_box_scores_preserve_available_stats():
     assert graded.status == 'WON'
     assert graded.verification_status == 'CONFIRMED'
     assert '3PM' not in bref['players']['luka doncic']
+
+
+@pytest.mark.parametrize("reason", ["Did Not Play", "Did Not Dress", "Not With Team"])
+def test_explicit_non_participation_is_void(reason):
+    html = f'''<table id="box-BOS-game-basic"><tbody><tr>
+    <th data-stat="player">Luka Dončić</th><td data-stat="reason">{reason}</td>
+    </tr></tbody></table>'''
+    bref = parse_box_score_html(html)
+    graded = grade_leg(leg(), {"players": {}}, bref)
+    assert (graded.status, graded.verification_status) == ("VOID", "UNVERIFIED")
+    assert graded.tank01_actual is None and graded.bref_actual is None
+    conflict = grade_leg(leg(), {"players": {"luka doncic": {"PTS": 28}}}, bref)
+    assert (conflict.status, conflict.verification_status) == ("WON", "DISCREPANCY")
+    missing = grade_leg(leg(), {"players": {}}, {"players": {}})
+    assert (missing.status, missing.verification_status) == ("PENDING", "DISCREPANCY")

@@ -27,6 +27,13 @@ def grade_leg(leg: BetLeg, tank01_data: dict, bref_data: dict) -> BetLeg:
     if leg.side not in allowed[leg.market_type]:
         raise ValueError("Side is not valid for the market")
     tank, bref = _actual(leg, tank01_data), _actual(leg, bref_data)
+    if (leg.market_type == MarketType.PLAYER_PROP and leg.player_name
+            and normalize_name(leg.player_name) in bref_data.get("did_not_play", [])
+            and not tank01_data.get("players", {}).get(normalize_name(leg.player_name))):
+        return leg.model_copy(update={
+            "tank01_actual": None, "bref_actual": None,
+            "verification_status": VerificationStatus.UNVERIFIED, "status": LegStatus.VOID,
+        })
     confirmed = tank is not None and bref is not None and math.isclose(tank, bref, rel_tol=0, abs_tol=1e-5)
     verification = VerificationStatus.CONFIRMED if confirmed else VerificationStatus.DISCREPANCY
     status = LegStatus.PENDING
