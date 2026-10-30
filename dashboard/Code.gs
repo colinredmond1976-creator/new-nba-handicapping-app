@@ -2,7 +2,7 @@ const PAYLOAD_URL = 'https://raw.githubusercontent.com/colinredmond1976-creator/
 const CACHE_KEY = 'dashboard_payload';
 
 function doGet(e) {
-  return HtmlService.createHtmlOutputFromFile('Index').setTitle('NBA Handicapping Dashboard');
+  return HtmlService.createHtmlOutputFromFile('Index').setTitle('NBA Handicapping Dashboard').addMetaTag('viewport', 'width=device-width, initial-scale=1');
 }
 
 function getDashboardData() {
