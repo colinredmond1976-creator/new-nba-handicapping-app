@@ -6,10 +6,10 @@
 	<string>com.nba.handicap.daily</string>
 	<key>ProgramArguments</key>
 	<array>
-		<string>/Users/credmond/Documents/Documents - Colin’s Mac Mini/ChatGPT/New NBA Handicapping App/scripts/run_daily.sh</string>
+		<string>/Users/credmond/Projects/New NBA Handicapping App/scripts/run_daily.sh</string>
 	</array>
 	<key>WorkingDirectory</key>
-	<string>/Users/credmond/Documents/Documents - Colin’s Mac Mini/ChatGPT/New NBA Handicapping App</string>
+	<string>/Users/credmond/Projects/New NBA Handicapping App</string>
 	<key>StartCalendarInterval</key>
 	<dict>
 		<key>Hour</key>
@@ -23,8 +23,8 @@
 		<string>America/Toronto</string>
 	</dict>
 	<key>StandardOutPath</key>
-	<string>/Users/credmond/Documents/Documents - Colin’s Mac Mini/ChatGPT/New NBA Handicapping App/logs/pipeline.log</string>
+	<string>/Users/credmond/Library/Logs/nba-handicap-daily.log</string>
 	<key>StandardErrorPath</key>
-	<string>/Users/credmond/Documents/Documents - Colin’s Mac Mini/ChatGPT/New NBA Handicapping App/logs/pipeline.log</string>
+	<string>/Users/credmond/Library/Logs/nba-handicap-daily.log</string>
 </dict>
 </plist>

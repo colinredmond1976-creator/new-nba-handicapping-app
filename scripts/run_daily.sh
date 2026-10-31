@@ -1,7 +1,7 @@
 #!/bin/bash
 set -euo pipefail
 
-PROJECT_DIR="/Users/credmond/Documents/Documents - Colin’s Mac Mini/ChatGPT/New NBA Handicapping App"
+PROJECT_DIR="/Users/credmond/Projects/New NBA Handicapping App"
 export TZ="America/Toronto"
 cd "$PROJECT_DIR"
 
