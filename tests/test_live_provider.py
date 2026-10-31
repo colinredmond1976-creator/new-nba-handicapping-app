@@ -121,3 +121,26 @@ def test_all_supplied_two_sided_prop_categories_are_candidates():
         'PTS', 'REB', 'AST', 'PRA', '3PM', 'PTS_AST', 'PTS_REB', 'REB_AST', 'STL', 'BLK', 'STL_BLK',
     }
     assert len(legs) == 22
+
+
+def test_schedule_times_validate_date_and_duplicate_conflicts():
+    from nba_handicap.api.live_provider import Tank01CandidateProvider
+    import pytest
+
+    game = {"gameID": "20261031_ATL@NO", "gameDate": "20261031", "gameTime_epoch": "1793487600.0"}
+    class Client:
+        def get_team_schedules(self):
+            return {"statusCode": 200, "body": [{"teamSchedule": {"a": game}}, {"teamSchedule": {"a": dict(game)}}]}
+
+    provider = Tank01CandidateProvider(Client())
+    assert provider.get_start_times("2026-10-31") == {"20261031_ATL@NO": "2026-10-31T23:00:00+00:00"}
+    game["gameTime_epoch"] = "not-a-time"
+    assert provider.get_start_times("2026-10-31") == {}
+
+    class Conflict:
+        def get_team_schedules(self):
+            a = {"gameID": "g", "gameDate": "20261031", "gameTime_epoch": "1793487600"}
+            b = {**a, "gameTime_epoch": "1793491200"}
+            return {"body": [{"teamSchedule": {"a": a}}, {"teamSchedule": {"b": b}}]}
+    with pytest.raises(ValueError, match="Conflicting"):
+        Tank01CandidateProvider(Conflict()).get_start_times("2026-10-31")

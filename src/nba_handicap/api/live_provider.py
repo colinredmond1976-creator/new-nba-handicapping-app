@@ -1,5 +1,6 @@
 import math
-from datetime import date
+from datetime import date, datetime, timezone
+from zoneinfo import ZoneInfo
 from uuid import NAMESPACE_URL, uuid5
 
 from nba_handicap.analysis.selector import american_to_implied_prob
@@ -31,6 +32,35 @@ class Tank01CandidateProvider:
             names = {str(player["playerID"]): player["longName"] for player in players["body"]
                      if player.get("playerID") and player.get("longName")}
         return [self._game(game, day, names) for game in games]
+
+    def get_start_times(self, run_date: str) -> dict[str, str]:
+        day = date.fromisoformat(run_date)
+        payload = self.client.get_team_schedules()
+        if payload.get("error") or payload.get("statusCode", 200) != 200 or not isinstance(payload.get("body"), list):
+            raise ValueError("Tank01 team schedules are unavailable")
+        result = {}
+        for team in payload["body"]:
+            schedule = team.get("teamSchedule", {})
+            if not isinstance(schedule, dict):
+                continue
+            for game in schedule.values():
+                if not isinstance(game, dict) or game.get("gameDate") != day.strftime("%Y%m%d"):
+                    continue
+                try:
+                    game_id = game["gameID"]
+                    stamp = float(game["gameTime_epoch"])
+                    if not math.isfinite(stamp):
+                        continue
+                    start = datetime.fromtimestamp(stamp, tz=timezone.utc)
+                    if start.astimezone(ZoneInfo("America/Toronto")).date() != day:
+                        continue
+                except (KeyError, TypeError, ValueError, OverflowError, OSError):
+                    continue
+                value = start.isoformat()
+                if game_id in result and result[game_id] != value:
+                    raise ValueError(f"Conflicting start times for {game_id}")
+                result[game_id] = value
+        return result
 
     def _game(self, game: dict, day: date, names: dict) -> dict:
         game_id, away, home = game["gameID"], game["awayTeam"], game["homeTeam"]

@@ -19,6 +19,7 @@ def run_daily_pipeline(db_path: str, output_json_path: str, run_date: str, *,
         Path(db_path).parent.mkdir(parents=True, exist_ok=True)
     db = Database(db_path)
     errors = []
+    start_times = {}
     graded_count = 0
     discrepancy_count = 0
     games_processed = 0
@@ -68,6 +69,14 @@ def run_daily_pipeline(db_path: str, output_json_path: str, run_date: str, *,
             if candidate_provider is None:
                 raise ValueError("A candidate provider is required")
             games = candidate_provider(day.isoformat())
+            if games and hasattr(candidate_provider, "get_start_times"):
+                try:
+                    start_times = candidate_provider.get_start_times(day.isoformat())
+                    missing = [game["game_id"] for game in games if game["game_id"] not in start_times]
+                    if missing:
+                        errors.append("Missing scheduled start time: " + ", ".join(missing))
+                except Exception as exc:
+                    errors.append(f"Game schedule: {exc}")
             for game in games:
                 try:
                     if db.has_daily_card(game["game_id"], day):
@@ -97,7 +106,7 @@ def run_daily_pipeline(db_path: str, output_json_path: str, run_date: str, *,
             message="; ".join(errors) if errors else ("Discrepancies flagged" if discrepancy_count else (f"Completed; reused {reused_cards} existing cards" if reused_cards else "Completed")),
         )
         db.record_heartbeat(heartbeat)
-        db.export_dashboard_json(output_json_path, game_date=day)
+        db.export_dashboard_json(output_json_path, game_date=day, start_times=start_times)
         return heartbeat
     finally:
         for client in owned_clients:

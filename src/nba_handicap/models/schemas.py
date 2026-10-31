@@ -75,6 +75,7 @@ class BetLeg(BaseModel):
 class GameCard(BaseModel):
     game_id: str
     game_date: date
+    game_start_time: datetime | None = None
     away_team: str
     home_team: str
     legs: list[BetLeg] = Field(min_length=4, max_length=4)

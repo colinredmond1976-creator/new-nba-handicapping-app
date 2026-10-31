@@ -27,6 +27,11 @@ class Tank01OddsClient:
         response.raise_for_status()
         return response.json()
 
+    def get_team_schedules(self) -> dict:
+        response = self.client.get("/getNBATeams", params={"schedules": "true"})
+        response.raise_for_status()
+        return response.json()
+
     def get_player_list(self) -> dict:
         response = self.client.get("/getNBAPlayerList")
         response.raise_for_status()

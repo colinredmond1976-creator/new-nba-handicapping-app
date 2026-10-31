@@ -1,7 +1,7 @@
 {
   "heartbeat": {
-    "run_id": "a582dc61-c517-46e9-b5f2-068b8c146dc6",
-    "timestamp_utc": "2026-10-31T17:50:06.722636Z",
+    "run_id": "3163f6b0-de56-4809-8451-de1f7040ea3e",
+    "timestamp_utc": "2026-10-31T17:57:54.088242Z",
     "status": "SUCCESS",
     "games_processed": 7,
     "legs_graded": 0,
@@ -21,6 +21,7 @@
     {
       "game_id": "20261031_ATL@NO",
       "game_date": "2026-10-31",
+      "game_start_time": "2026-10-31T23:00:00Z",
       "away_team": "ATL",
       "home_team": "NO",
       "legs": [
@@ -105,6 +106,7 @@
     {
       "game_id": "20261031_CLE@MIL",
       "game_date": "2026-10-31",
+      "game_start_time": "2026-11-01T00:00:00Z",
       "away_team": "CLE",
       "home_team": "MIL",
       "legs": [
@@ -189,6 +191,7 @@
     {
       "game_id": "20261031_MIN@SA",
       "game_date": "2026-10-31",
+      "game_start_time": "2026-11-01T00:00:00Z",
       "away_team": "MIN",
       "home_team": "SA",
       "legs": [
@@ -273,6 +276,7 @@
     {
       "game_id": "20261031_OKC@HOU",
       "game_date": "2026-10-31",
+      "game_start_time": "2026-11-01T00:30:00Z",
       "away_team": "OKC",
       "home_team": "HOU",
       "legs": [
@@ -357,6 +361,7 @@
     {
       "game_id": "20261031_PHI@CHA",
       "game_date": "2026-10-31",
+      "game_start_time": "2026-10-31T22:00:00Z",
       "away_team": "PHI",
       "home_team": "CHA",
       "legs": [
@@ -441,6 +446,7 @@
     {
       "game_id": "20261031_POR@UTA",
       "game_date": "2026-10-31",
+      "game_start_time": "2026-10-31T19:00:00Z",
       "away_team": "POR",
       "home_team": "UTA",
       "legs": [
@@ -525,6 +531,7 @@
     {
       "game_id": "20261031_SAC@MEM",
       "game_date": "2026-10-31",
+      "game_start_time": "2026-11-01T00:00:00Z",
       "away_team": "SAC",
       "home_team": "MEM",
       "legs": [

@@ -126,7 +126,7 @@ class Database:
             net_units=net_units, roi_pct=net_units / settled * 100 if settled else 0.0,
         )
 
-    def export_dashboard_json(self, filepath: str | Path, game_date: date | str | None = None) -> None:
+    def export_dashboard_json(self, filepath: str | Path, game_date: date | str | None = None, *, start_times: dict[str, str] | None = None) -> None:
         row = self.connection.execute(
             "SELECT * FROM run_logs ORDER BY timestamp_utc DESC, rowid DESC LIMIT 1"
         ).fetchone()
@@ -143,6 +143,7 @@ class Database:
                 key = (pick["game_id"], pick["game_date"])
                 card = cards.setdefault(key, {
                     "game_id": pick["game_id"], "game_date": pick["game_date"],
+                    "game_start_time": (start_times or {}).get(pick["game_id"]),
                     "away_team": pick["away_team"], "home_team": pick["home_team"],
                     "legs": [],
                 })

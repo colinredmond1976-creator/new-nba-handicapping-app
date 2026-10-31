@@ -125,3 +125,33 @@ def test_cli_partial_and_failed_exit_codes(monkeypatch, capsys):
         else:
             cli.main()
         assert status.value in capsys.readouterr().out
+
+
+def test_pipeline_exports_start_time_for_reused_cards_and_warns_on_schedule_failure(tmp_path):
+    day = date(2026, 10, 31)
+    db_path = str(tmp_path / "picks.sqlite")
+    output = tmp_path / "dashboard_payload.json"
+
+    class Provider:
+        fail = False
+        def __call__(self, run_date):
+            return [{"game_id": "game", "away_team": "Away", "home_team": "Home",
+                     "candidates": [make_leg(day, "game", n) for n in range(4)]}]
+        def get_start_times(self, run_date):
+            if self.fail:
+                raise ValueError("schedule unavailable")
+            return {"game": "2026-10-31T23:00:00+00:00"}
+
+    provider = Provider()
+    first = run_daily_pipeline(db_path, str(output), day.isoformat(), candidate_provider=provider)
+    assert first.status == "SUCCESS"
+    card = json.loads(output.read_text())["todays_cards"][0]
+    assert card["game_start_time"] in ("2026-10-31T23:00:00Z", "2026-10-31T23:00:00+00:00")
+    second = run_daily_pipeline(db_path, str(output), day.isoformat(), candidate_provider=provider)
+    assert second.status == "SUCCESS"
+    assert json.loads(output.read_text())["todays_cards"][0]["game_start_time"] == card["game_start_time"]
+    provider.fail = True
+    failed_schedule = run_daily_pipeline(db_path, str(output), day.isoformat(), candidate_provider=provider)
+    assert failed_schedule.status == "PARTIAL"
+    assert "schedule unavailable" in failed_schedule.message
+    assert json.loads(output.read_text())["todays_cards"][0]["game_start_time"] is None
