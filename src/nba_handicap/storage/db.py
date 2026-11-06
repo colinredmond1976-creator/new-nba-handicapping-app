@@ -56,7 +56,7 @@ class Database:
                 for leg in card.legs:
                     if leg.game_id != card.game_id or leg.game_date != card.game_date:
                         raise ValueError("Leg game identity must match its card")
-                    values = leg.model_dump(mode="json")
+                    values = leg.model_dump(mode="json", exclude={"nba_actual", "nba_outcome", "nba_source_url"})
                     values.update(away_team=card.away_team, home_team=card.home_team)
                     columns = list(values)
                     self.connection.execute(
@@ -137,6 +137,21 @@ class Database:
             raise ValueError("Heartbeat timestamp must include a timezone")
         today = str(game_date) if game_date is not None else heartbeat.timestamp_utc.astimezone(timezone.utc).date().isoformat()
         rows = self.connection.execute("SELECT * FROM picks ORDER BY rowid").fetchall()
+        has_nba_reviews = self.connection.execute(
+            "SELECT 1 FROM sqlite_master WHERE type = 'table' AND name = 'nba_reconciliations'"
+        ).fetchone()
+        reviews = {row["leg_id"]: dict(row) for row in self.connection.execute(
+            "SELECT leg_id, nba_actual, nba_outcome, source_url FROM nba_reconciliations"
+        )} if has_nba_reviews else {}
+
+        def with_nba(pick):
+            values = dict(pick)
+            review = reviews.get(values["leg_id"])
+            if review:
+                values.update(nba_actual=review["nba_actual"], nba_outcome=review["nba_outcome"],
+                              nba_source_url=review["source_url"])
+            return BetLeg.model_validate(values)
+
         cards: dict[tuple[str, str], dict] = {}
         for pick in rows:
             if pick["game_date"] == today:
@@ -147,11 +162,11 @@ class Database:
                     "away_team": pick["away_team"], "home_team": pick["home_team"],
                     "legs": [],
                 })
-                card["legs"].append(BetLeg.model_validate(dict(pick)))
+                card["legs"].append(with_nba(pick))
         payload = DashboardPayload(
             heartbeat=heartbeat, summary=self.compute_performance_summary(),
             todays_cards=[GameCard.model_validate(card) for card in cards.values()],
-            history=[BetLeg.model_validate(dict(pick)) for pick in rows],
+            history=[with_nba(pick) for pick in rows],
         )
         path = Path(filepath)
         path.parent.mkdir(parents=True, exist_ok=True)

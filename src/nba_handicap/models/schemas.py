@@ -69,6 +69,9 @@ class BetLeg(BaseModel):
     status: LegStatus = LegStatus.PENDING
     tank01_actual: float | None = None
     bref_actual: float | None = None
+    nba_actual: float | None = None
+    nba_outcome: str | None = None
+    nba_source_url: str | None = None
     verification_status: VerificationStatus = VerificationStatus.UNVERIFIED
 
 
