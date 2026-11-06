@@ -48,7 +48,8 @@ def test_discrepancy_push_and_game_markets():
     bref = parse_box_score_html(HTML)
     bref["players"]["luka doncic"]["REB"] = 9
     graded = grade_leg(leg(stat_category="REB", line=9.5), tank, bref)
-    assert (graded.status, graded.verification_status) == ("WON", "DISCREPANCY")
+    assert (graded.status, graded.verification_status) == ("LOST", "DISCREPANCY")
+    assert (graded.tank01_actual, graded.bref_actual) == (10, 9)
     assert grade_leg(leg(line=28), tank, bref).status == "PUSH"
     assert grade_leg(leg(market_type="SPREAD", side="HOME", line=-4.5), tank, bref).status == "WON"
     assert grade_leg(leg(market_type="SPREAD", side="AWAY", line=5), tank, bref).status == "PUSH"

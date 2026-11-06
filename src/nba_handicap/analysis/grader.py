@@ -37,13 +37,14 @@ def grade_leg(leg: BetLeg, tank01_data: dict, bref_data: dict) -> BetLeg:
     confirmed = tank is not None and bref is not None and math.isclose(tank, bref, rel_tol=0, abs_tol=1e-5)
     verification = VerificationStatus.CONFIRMED if confirmed else VerificationStatus.DISCREPANCY
     status = LegStatus.PENDING
-    if tank is not None:
+    actual = bref if tank is not None and bref is not None else tank
+    if actual is not None:
         if leg.market_type == MarketType.SPREAD:
-            difference = tank + leg.line
+            difference = actual + leg.line
         elif leg.market_type == MarketType.MONEYLINE:
-            difference = tank
+            difference = actual
         else:
-            difference = tank - leg.line
+            difference = actual - leg.line
             if leg.side == Side.UNDER:
                 difference = -difference
         if math.isclose(difference, 0, rel_tol=0, abs_tol=1e-5):
