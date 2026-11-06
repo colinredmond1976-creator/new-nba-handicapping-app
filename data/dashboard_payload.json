@@ -1,21 +1,21 @@
 {
   "heartbeat": {
-    "run_id": "1d128ec7-483f-415d-8b85-6c65b669c283",
-    "timestamp_utc": "2026-11-06T17:01:34.990253Z",
+    "run_id": "d2ce7bd0-fe66-4d1d-9e04-a94a885c62b9",
+    "timestamp_utc": "2026-11-06T22:46:50.876285Z",
     "status": "PARTIAL",
     "games_processed": 9,
-    "legs_graded": 4,
+    "legs_graded": 5,
     "discrepancies_flagged": 5,
-    "message": "Tank01 20261104_MIL@BOS: [Errno 8] nodename nor servname provided, or not known; Basketball-Reference 20261104_MIL@BOS: [Errno 8] nodename nor servname provided, or not known; Tank01 20261105_MIA@GS: [Errno 8] nodename nor servname provided, or not known"
+    "message": "Manual reconciliation using NBA.com: five previously pending picks settled; original source discrepancies retained. Today\u2019s existing cards preserved."
   },
   "summary": {
     "total_picks": 292,
-    "wins": 167,
-    "losses": 73,
+    "wins": 169,
+    "losses": 75,
     "pushes": 0,
-    "win_rate": 0.6958333333333333,
-    "net_units": 33.90542513533331,
-    "roi_pct": 14.127260473055545
+    "win_rate": 0.6926229508196722,
+    "net_units": 32.87054141440307,
+    "roi_pct": 13.471533366558635
   },
   "todays_cards": [
     {
@@ -5055,10 +5055,10 @@
       "implied_prob": 0.39215686274509803,
       "model_prob": 0.5405405405405406,
       "edge": 0.14838367779544254,
-      "status": "PENDING",
+      "status": "VOID",
       "tank01_actual": null,
       "bref_actual": null,
-      "verification_status": "DISCREPANCY"
+      "verification_status": "UNVERIFIED"
     },
     {
       "leg_id": "eb93c34f-2594-5cb9-aa4a-0aab96a87657",
@@ -5511,7 +5511,7 @@
       "implied_prob": 0.6825396825396826,
       "model_prob": 0.6395881006864989,
       "edge": -0.04295158185318371,
-      "status": "PENDING",
+      "status": "WON",
       "tank01_actual": null,
       "bref_actual": 0.0,
       "verification_status": "DISCREPANCY"
@@ -5530,7 +5530,7 @@
       "implied_prob": 0.6825396825396826,
       "model_prob": 0.6395881006864989,
       "edge": -0.04295158185318371,
-      "status": "PENDING",
+      "status": "LOST",
       "tank01_actual": null,
       "bref_actual": 2.0,
       "verification_status": "DISCREPANCY"
@@ -5549,7 +5549,7 @@
       "implied_prob": 0.6666666666666666,
       "model_prob": 0.6202531645569621,
       "edge": -0.04641350210970452,
-      "status": "PENDING",
+      "status": "WON",
       "tank01_actual": null,
       "bref_actual": 1.0,
       "verification_status": "DISCREPANCY"
@@ -5568,7 +5568,7 @@
       "implied_prob": 0.6774193548387096,
       "model_prob": 0.6240145542753184,
       "edge": -0.05340480056339125,
-      "status": "PENDING",
+      "status": "LOST",
       "tank01_actual": null,
       "bref_actual": 0.0,
       "verification_status": "DISCREPANCY"
