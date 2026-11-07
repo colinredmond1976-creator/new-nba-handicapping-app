@@ -6653,13 +6653,13 @@
       "implied_prob": 0.39215686274509803,
       "model_prob": 0.5405405405405406,
       "edge": 0.14838367779544254,
-      "status": "PENDING",
+      "status": "VOID",
       "tank01_actual": null,
       "bref_actual": null,
       "nba_actual": null,
-      "nba_outcome": null,
-      "nba_source_url": null,
-      "verification_status": "DISCREPANCY"
+      "nba_outcome": "VOID",
+      "nba_source_url": "https://www.nba.com/game/0022600027/box-score",
+      "verification_status": "UNVERIFIED"
     },
     {
       "leg_id": "2c353fec-3547-53cf-a884-6e4fe2ba89f9",
@@ -6895,13 +6895,13 @@
       "implied_prob": 0.6666666666666666,
       "model_prob": 0.625,
       "edge": -0.04166666666666663,
-      "status": "PENDING",
+      "status": "VOID",
       "tank01_actual": null,
       "bref_actual": null,
       "nba_actual": null,
-      "nba_outcome": null,
-      "nba_source_url": null,
-      "verification_status": "DISCREPANCY"
+      "nba_outcome": "VOID",
+      "nba_source_url": "https://www.nba.com/game/0022600030/box-score",
+      "verification_status": "UNVERIFIED"
     },
     {
       "leg_id": "8d1dd695-70f5-5c98-a9fd-f1063d141f88",
@@ -7115,13 +7115,13 @@
       "implied_prob": 0.6551724137931034,
       "model_prob": 0.6112600536193029,
       "edge": -0.04391236017380051,
-      "status": "PENDING",
+      "status": "VOID",
       "tank01_actual": null,
       "bref_actual": null,
       "nba_actual": null,
-      "nba_outcome": null,
-      "nba_source_url": null,
-      "verification_status": "DISCREPANCY"
+      "nba_outcome": "VOID",
+      "nba_source_url": "https://www.nba.com/game/was-vs-atl-0022600025/box-score",
+      "verification_status": "UNVERIFIED"
     },
     {
       "leg_id": "0ddf76fd-cd00-56b2-bc7c-df15eef1fcc3",
