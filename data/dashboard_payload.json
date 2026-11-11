@@ -10,12 +10,12 @@
   },
   "summary": {
     "total_picks": 444,
-    "wins": 256,
-    "losses": 120,
+    "wins": 262,
+    "losses": 122,
     "pushes": 0,
-    "win_rate": 0.6808510638297872,
-    "net_units": 51.96034242540905,
-    "roi_pct": 13.819240006757727
+    "win_rate": 0.6822916666666666,
+    "net_units": 53.67511975334427,
+    "roi_pct": 13.977895769100071
   },
   "todays_cards": [
     {
@@ -9364,12 +9364,12 @@
       "implied_prob": 0.6666666666666666,
       "model_prob": 0.6341463414634145,
       "edge": -0.0325203252032521,
-      "status": "PENDING",
+      "status": "WON",
       "tank01_actual": null,
       "bref_actual": null,
-      "nba_actual": null,
-      "nba_outcome": null,
-      "nba_source_url": null,
+      "nba_actual": 0,
+      "nba_outcome": "WON",
+      "nba_source_url": "https://www.nba.com/game/0022600212/box-score",
       "verification_status": "DISCREPANCY"
     },
     {
@@ -9386,12 +9386,12 @@
       "implied_prob": 0.6610169491525424,
       "model_prob": 0.6182465221611129,
       "edge": -0.04277042699142952,
-      "status": "PENDING",
+      "status": "WON",
       "tank01_actual": null,
       "bref_actual": null,
-      "nba_actual": null,
-      "nba_outcome": null,
-      "nba_source_url": null,
+      "nba_actual": 1,
+      "nba_outcome": "WON",
+      "nba_source_url": "https://www.nba.com/game/0022600212/box-score",
       "verification_status": "DISCREPANCY"
     },
     {
@@ -9408,12 +9408,12 @@
       "implied_prob": 0.6551724137931034,
       "model_prob": 0.6112600536193029,
       "edge": -0.04391236017380051,
-      "status": "PENDING",
+      "status": "WON",
       "tank01_actual": null,
       "bref_actual": null,
-      "nba_actual": null,
-      "nba_outcome": null,
-      "nba_source_url": null,
+      "nba_actual": 4,
+      "nba_outcome": "WON",
+      "nba_source_url": "https://www.nba.com/game/0022600212/box-score",
       "verification_status": "DISCREPANCY"
     },
     {
@@ -9430,12 +9430,12 @@
       "implied_prob": 0.6825396825396826,
       "model_prob": 0.6159707406278574,
       "edge": -0.06656894191182516,
-      "status": "PENDING",
+      "status": "LOST",
       "tank01_actual": null,
       "bref_actual": null,
-      "nba_actual": null,
-      "nba_outcome": null,
-      "nba_source_url": null,
+      "nba_actual": 0,
+      "nba_outcome": "LOST",
+      "nba_source_url": "https://www.nba.com/game/0022600212/box-score",
       "verification_status": "DISCREPANCY"
     },
     {
@@ -9452,12 +9452,12 @@
       "implied_prob": 0.46511627906976744,
       "model_prob": 0.5520833333333333,
       "edge": 0.08696705426356582,
-      "status": "PENDING",
+      "status": "WON",
       "tank01_actual": null,
       "bref_actual": 0.0,
-      "nba_actual": null,
-      "nba_outcome": null,
-      "nba_source_url": null,
+      "nba_actual": 0,
+      "nba_outcome": "WON",
+      "nba_source_url": "https://www.nba.com/game/0022600213/box-score",
       "verification_status": "DISCREPANCY"
     },
     {
@@ -9474,12 +9474,12 @@
       "implied_prob": 0.6825396825396826,
       "model_prob": 0.6395881006864989,
       "edge": -0.04295158185318371,
-      "status": "PENDING",
+      "status": "LOST",
       "tank01_actual": null,
       "bref_actual": 2.0,
-      "nba_actual": null,
-      "nba_outcome": null,
-      "nba_source_url": null,
+      "nba_actual": 2,
+      "nba_outcome": "LOST",
+      "nba_source_url": "https://www.nba.com/game/0022600213/box-score",
       "verification_status": "DISCREPANCY"
     },
     {
@@ -9496,12 +9496,12 @@
       "implied_prob": 0.6610169491525424,
       "model_prob": 0.6182465221611129,
       "edge": -0.04277042699142952,
-      "status": "PENDING",
+      "status": "WON",
       "tank01_actual": null,
       "bref_actual": 2.0,
-      "nba_actual": null,
-      "nba_outcome": null,
-      "nba_source_url": null,
+      "nba_actual": 2,
+      "nba_outcome": "WON",
+      "nba_source_url": "https://www.nba.com/game/0022600213/box-score",
       "verification_status": "DISCREPANCY"
     },
     {
@@ -9518,12 +9518,12 @@
       "implied_prob": 0.6610169491525424,
       "model_prob": 0.6182465221611129,
       "edge": -0.04277042699142952,
-      "status": "PENDING",
+      "status": "WON",
       "tank01_actual": null,
       "bref_actual": 1.0,
-      "nba_actual": null,
-      "nba_outcome": null,
-      "nba_source_url": null,
+      "nba_actual": 1,
+      "nba_outcome": "WON",
+      "nba_source_url": "https://www.nba.com/game/0022600213/box-score",
       "verification_status": "DISCREPANCY"
     },
     {
