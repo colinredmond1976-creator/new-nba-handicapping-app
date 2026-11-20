@@ -14109,9 +14109,9 @@
       "status": "LOST",
       "tank01_actual": 2.0,
       "bref_actual": null,
-      "nba_actual": null,
-      "nba_outcome": null,
-      "nba_source_url": null,
+      "nba_actual": 2,
+      "nba_outcome": "LOST",
+      "nba_source_url": "https://www.nba.com/game/0022600267/box-score",
       "verification_status": "DISCREPANCY"
     },
     {
@@ -14172,13 +14172,13 @@
       "implied_prob": 0.4,
       "model_prob": 0.5454545454545454,
       "edge": 0.1454545454545454,
-      "status": "PENDING",
+      "status": "VOID",
       "tank01_actual": null,
       "bref_actual": null,
       "nba_actual": null,
-      "nba_outcome": null,
-      "nba_source_url": null,
-      "verification_status": "DISCREPANCY"
+      "nba_outcome": "VOID",
+      "nba_source_url": "https://www.nba.com/game/0022600259/box-score",
+      "verification_status": "UNVERIFIED"
     },
     {
       "leg_id": "0ef46c6a-f81e-5e83-8c68-968e98d28c35",
@@ -14612,13 +14612,13 @@
       "implied_prob": 0.6551724137931034,
       "model_prob": 0.6112600536193029,
       "edge": -0.04391236017380051,
-      "status": "PENDING",
+      "status": "VOID",
       "tank01_actual": null,
       "bref_actual": null,
       "nba_actual": null,
-      "nba_outcome": null,
-      "nba_source_url": null,
-      "verification_status": "DISCREPANCY"
+      "nba_outcome": "VOID",
+      "nba_source_url": "https://www.nba.com/game/0022600268/box-score",
+      "verification_status": "UNVERIFIED"
     },
     {
       "leg_id": "b508433b-6f6e-54a9-8a65-b805698d0525",
@@ -14700,13 +14700,13 @@
       "implied_prob": 0.6666666666666666,
       "model_prob": 0.625,
       "edge": -0.04166666666666663,
-      "status": "PENDING",
+      "status": "VOID",
       "tank01_actual": null,
       "bref_actual": null,
       "nba_actual": null,
-      "nba_outcome": null,
-      "nba_source_url": null,
-      "verification_status": "DISCREPANCY"
+      "nba_outcome": "VOID",
+      "nba_source_url": "https://www.nba.com/game/0022600263/box-score",
+      "verification_status": "UNVERIFIED"
     },
     {
       "leg_id": "0c5b5085-70aa-5b7f-a4c4-7cb955b46997",
