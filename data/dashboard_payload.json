@@ -11730,8 +11730,8 @@
       "tank01_actual": null,
       "bref_actual": null,
       "nba_actual": null,
-      "nba_outcome": null,
-      "nba_source_url": null,
+      "nba_outcome": "VOID",
+      "nba_source_url": "https://www.nba.com/game/0022600232/box-score",
       "verification_status": "UNVERIFIED"
     },
     {
@@ -11796,8 +11796,8 @@
       "tank01_actual": null,
       "bref_actual": null,
       "nba_actual": null,
-      "nba_outcome": null,
-      "nba_source_url": null,
+      "nba_outcome": "VOID",
+      "nba_source_url": "https://www.nba.com/game/0022600231/box-score",
       "verification_status": "UNVERIFIED"
     },
     {
@@ -12940,8 +12940,8 @@
       "tank01_actual": null,
       "bref_actual": null,
       "nba_actual": null,
-      "nba_outcome": null,
-      "nba_source_url": null,
+      "nba_outcome": "VOID",
+      "nba_source_url": "https://www.nba.com/game/0022600249/box-score",
       "verification_status": "UNVERIFIED"
     },
     {
@@ -13798,8 +13798,8 @@
       "tank01_actual": null,
       "bref_actual": null,
       "nba_actual": null,
-      "nba_outcome": null,
-      "nba_source_url": null,
+      "nba_outcome": "VOID",
+      "nba_source_url": "https://www.nba.com/game/0022600254/box-score",
       "verification_status": "UNVERIFIED"
     },
     {
@@ -14172,8 +14172,8 @@
       "tank01_actual": null,
       "bref_actual": null,
       "nba_actual": null,
-      "nba_outcome": null,
-      "nba_source_url": null,
+      "nba_outcome": "VOID",
+      "nba_source_url": "https://www.nba.com/game/0022600264/box-score",
       "verification_status": "UNVERIFIED"
     },
     {
@@ -14656,8 +14656,8 @@
       "tank01_actual": null,
       "bref_actual": null,
       "nba_actual": null,
-      "nba_outcome": null,
-      "nba_source_url": null,
+      "nba_outcome": "VOID",
+      "nba_source_url": "https://www.nba.com/game/0022600261/box-score",
       "verification_status": "UNVERIFIED"
     },
     {
@@ -14678,8 +14678,8 @@
       "tank01_actual": null,
       "bref_actual": null,
       "nba_actual": null,
-      "nba_outcome": null,
-      "nba_source_url": null,
+      "nba_outcome": "VOID",
+      "nba_source_url": "https://www.nba.com/game/0022600261/box-score",
       "verification_status": "UNVERIFIED"
     },
     {
