@@ -15315,9 +15315,9 @@
       "status": "WON",
       "tank01_actual": 1.0,
       "bref_actual": null,
-      "nba_actual": null,
-      "nba_outcome": null,
-      "nba_source_url": null,
+      "nba_actual": 1,
+      "nba_outcome": "WON",
+      "nba_source_url": "https://www.nba.com/game/0022600043/box-score",
       "verification_status": "DISCREPANCY"
     },
     {
@@ -15337,9 +15337,9 @@
       "status": "WON",
       "tank01_actual": 1.0,
       "bref_actual": null,
-      "nba_actual": null,
-      "nba_outcome": null,
-      "nba_source_url": null,
+      "nba_actual": 1,
+      "nba_outcome": "WON",
+      "nba_source_url": "https://www.nba.com/game/0022600043/box-score",
       "verification_status": "DISCREPANCY"
     },
     {
@@ -15359,9 +15359,9 @@
       "status": "WON",
       "tank01_actual": 2.0,
       "bref_actual": null,
-      "nba_actual": null,
-      "nba_outcome": null,
-      "nba_source_url": null,
+      "nba_actual": 2,
+      "nba_outcome": "WON",
+      "nba_source_url": "https://www.nba.com/game/0022600043/box-score",
       "verification_status": "DISCREPANCY"
     },
     {
@@ -15381,9 +15381,9 @@
       "status": "LOST",
       "tank01_actual": 0.0,
       "bref_actual": null,
-      "nba_actual": null,
-      "nba_outcome": null,
-      "nba_source_url": null,
+      "nba_actual": 0,
+      "nba_outcome": "LOST",
+      "nba_source_url": "https://www.nba.com/game/0022600043/box-score",
       "verification_status": "DISCREPANCY"
     },
     {
@@ -15403,9 +15403,9 @@
       "status": "LOST",
       "tank01_actual": 3.0,
       "bref_actual": null,
-      "nba_actual": null,
-      "nba_outcome": null,
-      "nba_source_url": null,
+      "nba_actual": 3,
+      "nba_outcome": "LOST",
+      "nba_source_url": "https://www.nba.com/game/0022600050/box-score",
       "verification_status": "DISCREPANCY"
     },
     {
@@ -15425,9 +15425,9 @@
       "status": "WON",
       "tank01_actual": 1.0,
       "bref_actual": null,
-      "nba_actual": null,
-      "nba_outcome": null,
-      "nba_source_url": null,
+      "nba_actual": 1,
+      "nba_outcome": "WON",
+      "nba_source_url": "https://www.nba.com/game/0022600050/box-score",
       "verification_status": "DISCREPANCY"
     },
     {
@@ -15447,9 +15447,9 @@
       "status": "LOST",
       "tank01_actual": 3.0,
       "bref_actual": null,
-      "nba_actual": null,
-      "nba_outcome": null,
-      "nba_source_url": null,
+      "nba_actual": 3,
+      "nba_outcome": "LOST",
+      "nba_source_url": "https://www.nba.com/game/0022600050/box-score",
       "verification_status": "DISCREPANCY"
     },
     {
@@ -15469,9 +15469,9 @@
       "status": "WON",
       "tank01_actual": 1.0,
       "bref_actual": null,
-      "nba_actual": null,
-      "nba_outcome": null,
-      "nba_source_url": null,
+      "nba_actual": 1,
+      "nba_outcome": "WON",
+      "nba_source_url": "https://www.nba.com/game/0022600050/box-score",
       "verification_status": "DISCREPANCY"
     },
     {
@@ -15492,8 +15492,8 @@
       "tank01_actual": 9.0,
       "bref_actual": null,
       "nba_actual": null,
-      "nba_outcome": null,
-      "nba_source_url": null,
+      "nba_outcome": "WON",
+      "nba_source_url": "https://www.nba.com/game/0022600045/box-score",
       "verification_status": "DISCREPANCY"
     },
     {
@@ -15513,9 +15513,9 @@
       "status": "WON",
       "tank01_actual": 3.0,
       "bref_actual": null,
-      "nba_actual": null,
-      "nba_outcome": null,
-      "nba_source_url": null,
+      "nba_actual": 3,
+      "nba_outcome": "WON",
+      "nba_source_url": "https://www.nba.com/game/0022600045/box-score",
       "verification_status": "DISCREPANCY"
     },
     {
@@ -15535,9 +15535,9 @@
       "status": "WON",
       "tank01_actual": 7.0,
       "bref_actual": null,
-      "nba_actual": null,
-      "nba_outcome": null,
-      "nba_source_url": null,
+      "nba_actual": 7,
+      "nba_outcome": "WON",
+      "nba_source_url": "https://www.nba.com/game/0022600045/box-score",
       "verification_status": "DISCREPANCY"
     },
     {
@@ -15557,9 +15557,9 @@
       "status": "WON",
       "tank01_actual": 0.0,
       "bref_actual": null,
-      "nba_actual": null,
-      "nba_outcome": null,
-      "nba_source_url": null,
+      "nba_actual": 0,
+      "nba_outcome": "WON",
+      "nba_source_url": "https://www.nba.com/game/0022600045/box-score",
       "verification_status": "DISCREPANCY"
     },
     {
@@ -15579,9 +15579,9 @@
       "status": "WON",
       "tank01_actual": 1.0,
       "bref_actual": null,
-      "nba_actual": null,
-      "nba_outcome": null,
-      "nba_source_url": null,
+      "nba_actual": 1,
+      "nba_outcome": "WON",
+      "nba_source_url": "https://www.nba.com/game/0022600048/box-score",
       "verification_status": "DISCREPANCY"
     },
     {
@@ -15601,9 +15601,9 @@
       "status": "WON",
       "tank01_actual": 1.0,
       "bref_actual": null,
-      "nba_actual": null,
-      "nba_outcome": null,
-      "nba_source_url": null,
+      "nba_actual": 1,
+      "nba_outcome": "WON",
+      "nba_source_url": "https://www.nba.com/game/0022600048/box-score",
       "verification_status": "DISCREPANCY"
     },
     {
@@ -15623,9 +15623,9 @@
       "status": "WON",
       "tank01_actual": 4.0,
       "bref_actual": null,
-      "nba_actual": null,
-      "nba_outcome": null,
-      "nba_source_url": null,
+      "nba_actual": 4,
+      "nba_outcome": "WON",
+      "nba_source_url": "https://www.nba.com/game/0022600048/box-score",
       "verification_status": "DISCREPANCY"
     },
     {
@@ -15645,9 +15645,9 @@
       "status": "WON",
       "tank01_actual": 2.0,
       "bref_actual": null,
-      "nba_actual": null,
-      "nba_outcome": null,
-      "nba_source_url": null,
+      "nba_actual": 2,
+      "nba_outcome": "WON",
+      "nba_source_url": "https://www.nba.com/game/0022600048/box-score",
       "verification_status": "DISCREPANCY"
     },
     {
@@ -15667,9 +15667,9 @@
       "status": "WON",
       "tank01_actual": 1.0,
       "bref_actual": null,
-      "nba_actual": null,
-      "nba_outcome": null,
-      "nba_source_url": null,
+      "nba_actual": 1,
+      "nba_outcome": "WON",
+      "nba_source_url": "https://www.nba.com/game/0022600044/box-score",
       "verification_status": "DISCREPANCY"
     },
     {
@@ -15689,9 +15689,9 @@
       "status": "WON",
       "tank01_actual": 0.0,
       "bref_actual": null,
-      "nba_actual": null,
-      "nba_outcome": null,
-      "nba_source_url": null,
+      "nba_actual": 0,
+      "nba_outcome": "WON",
+      "nba_source_url": "https://www.nba.com/game/0022600044/box-score",
       "verification_status": "DISCREPANCY"
     },
     {
@@ -15711,9 +15711,9 @@
       "status": "WON",
       "tank01_actual": 1.0,
       "bref_actual": null,
-      "nba_actual": null,
-      "nba_outcome": null,
-      "nba_source_url": null,
+      "nba_actual": 1,
+      "nba_outcome": "WON",
+      "nba_source_url": "https://www.nba.com/game/0022600044/box-score",
       "verification_status": "DISCREPANCY"
     },
     {
@@ -15733,9 +15733,9 @@
       "status": "WON",
       "tank01_actual": 1.0,
       "bref_actual": null,
-      "nba_actual": null,
-      "nba_outcome": null,
-      "nba_source_url": null,
+      "nba_actual": 1,
+      "nba_outcome": "WON",
+      "nba_source_url": "https://www.nba.com/game/0022600044/box-score",
       "verification_status": "DISCREPANCY"
     },
     {
@@ -15755,9 +15755,9 @@
       "status": "LOST",
       "tank01_actual": 1.0,
       "bref_actual": null,
-      "nba_actual": null,
-      "nba_outcome": null,
-      "nba_source_url": null,
+      "nba_actual": 1,
+      "nba_outcome": "LOST",
+      "nba_source_url": "https://www.nba.com/game/0022600049/box-score",
       "verification_status": "DISCREPANCY"
     },
     {
@@ -15777,9 +15777,9 @@
       "status": "LOST",
       "tank01_actual": 0.0,
       "bref_actual": null,
-      "nba_actual": null,
-      "nba_outcome": null,
-      "nba_source_url": null,
+      "nba_actual": 0,
+      "nba_outcome": "LOST",
+      "nba_source_url": "https://www.nba.com/game/0022600049/box-score",
       "verification_status": "DISCREPANCY"
     },
     {
@@ -15800,8 +15800,8 @@
       "tank01_actual": 10.0,
       "bref_actual": null,
       "nba_actual": null,
-      "nba_outcome": null,
-      "nba_source_url": null,
+      "nba_outcome": "WON",
+      "nba_source_url": "https://www.nba.com/game/0022600049/box-score",
       "verification_status": "DISCREPANCY"
     },
     {
@@ -15821,9 +15821,9 @@
       "status": "LOST",
       "tank01_actual": 0.0,
       "bref_actual": null,
-      "nba_actual": null,
-      "nba_outcome": null,
-      "nba_source_url": null,
+      "nba_actual": 0,
+      "nba_outcome": "LOST",
+      "nba_source_url": "https://www.nba.com/game/0022600049/box-score",
       "verification_status": "DISCREPANCY"
     },
     {
@@ -15843,9 +15843,9 @@
       "status": "WON",
       "tank01_actual": 1.0,
       "bref_actual": null,
-      "nba_actual": null,
-      "nba_outcome": null,
-      "nba_source_url": null,
+      "nba_actual": 1,
+      "nba_outcome": "WON",
+      "nba_source_url": "https://www.nba.com/game/0022600051/box-score",
       "verification_status": "DISCREPANCY"
     },
     {
@@ -15865,9 +15865,9 @@
       "status": "WON",
       "tank01_actual": 1.0,
       "bref_actual": null,
-      "nba_actual": null,
-      "nba_outcome": null,
-      "nba_source_url": null,
+      "nba_actual": 1,
+      "nba_outcome": "WON",
+      "nba_source_url": "https://www.nba.com/game/0022600051/box-score",
       "verification_status": "DISCREPANCY"
     },
     {
@@ -15887,9 +15887,9 @@
       "status": "LOST",
       "tank01_actual": 0.0,
       "bref_actual": null,
-      "nba_actual": null,
-      "nba_outcome": null,
-      "nba_source_url": null,
+      "nba_actual": 0,
+      "nba_outcome": "LOST",
+      "nba_source_url": "https://www.nba.com/game/0022600051/box-score",
       "verification_status": "DISCREPANCY"
     },
     {
@@ -15909,9 +15909,9 @@
       "status": "LOST",
       "tank01_actual": 0.0,
       "bref_actual": null,
-      "nba_actual": null,
-      "nba_outcome": null,
-      "nba_source_url": null,
+      "nba_actual": 0,
+      "nba_outcome": "LOST",
+      "nba_source_url": "https://www.nba.com/game/0022600051/box-score",
       "verification_status": "DISCREPANCY"
     },
     {
@@ -15931,9 +15931,9 @@
       "status": "LOST",
       "tank01_actual": 0.0,
       "bref_actual": null,
-      "nba_actual": null,
-      "nba_outcome": null,
-      "nba_source_url": null,
+      "nba_actual": 0,
+      "nba_outcome": "LOST",
+      "nba_source_url": "https://www.nba.com/game/0022600046/box-score",
       "verification_status": "DISCREPANCY"
     },
     {
@@ -15953,9 +15953,9 @@
       "status": "WON",
       "tank01_actual": 2.0,
       "bref_actual": null,
-      "nba_actual": null,
-      "nba_outcome": null,
-      "nba_source_url": null,
+      "nba_actual": 2,
+      "nba_outcome": "WON",
+      "nba_source_url": "https://www.nba.com/game/0022600046/box-score",
       "verification_status": "DISCREPANCY"
     },
     {
@@ -15975,9 +15975,9 @@
       "status": "LOST",
       "tank01_actual": 0.0,
       "bref_actual": null,
-      "nba_actual": null,
-      "nba_outcome": null,
-      "nba_source_url": null,
+      "nba_actual": 0,
+      "nba_outcome": "LOST",
+      "nba_source_url": "https://www.nba.com/game/0022600046/box-score",
       "verification_status": "DISCREPANCY"
     },
     {
@@ -15997,9 +15997,9 @@
       "status": "WON",
       "tank01_actual": 2.0,
       "bref_actual": null,
-      "nba_actual": null,
-      "nba_outcome": null,
-      "nba_source_url": null,
+      "nba_actual": 2,
+      "nba_outcome": "WON",
+      "nba_source_url": "https://www.nba.com/game/0022600046/box-score",
       "verification_status": "DISCREPANCY"
     },
     {
@@ -16019,9 +16019,9 @@
       "status": "LOST",
       "tank01_actual": 2.0,
       "bref_actual": null,
-      "nba_actual": null,
-      "nba_outcome": null,
-      "nba_source_url": null,
+      "nba_actual": 2,
+      "nba_outcome": "LOST",
+      "nba_source_url": "https://www.nba.com/game/0022600047/box-score",
       "verification_status": "DISCREPANCY"
     },
     {
@@ -16041,9 +16041,9 @@
       "status": "WON",
       "tank01_actual": 4.0,
       "bref_actual": null,
-      "nba_actual": null,
-      "nba_outcome": null,
-      "nba_source_url": null,
+      "nba_actual": 4,
+      "nba_outcome": "WON",
+      "nba_source_url": "https://www.nba.com/game/0022600047/box-score",
       "verification_status": "DISCREPANCY"
     },
     {
@@ -16063,9 +16063,9 @@
       "status": "WON",
       "tank01_actual": 1.0,
       "bref_actual": null,
-      "nba_actual": null,
-      "nba_outcome": null,
-      "nba_source_url": null,
+      "nba_actual": 1,
+      "nba_outcome": "WON",
+      "nba_source_url": "https://www.nba.com/game/0022600047/box-score",
       "verification_status": "DISCREPANCY"
     },
     {
@@ -16085,9 +16085,9 @@
       "status": "WON",
       "tank01_actual": 1.0,
       "bref_actual": null,
-      "nba_actual": null,
-      "nba_outcome": null,
-      "nba_source_url": null,
+      "nba_actual": 1,
+      "nba_outcome": "WON",
+      "nba_source_url": "https://www.nba.com/game/0022600047/box-score",
       "verification_status": "DISCREPANCY"
     },
     {
