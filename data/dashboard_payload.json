@@ -17834,9 +17834,9 @@
       "status": "LOST",
       "tank01_actual": 3.0,
       "bref_actual": 4.0,
-      "nba_actual": null,
-      "nba_outcome": null,
-      "nba_source_url": null,
+      "nba_actual": 4,
+      "nba_outcome": "LOST",
+      "nba_source_url": "https://www.nba.com/game/0022600060/box-score",
       "verification_status": "DISCREPANCY"
     },
     {
@@ -18469,13 +18469,13 @@
       "implied_prob": 0.6551724137931034,
       "model_prob": 0.6112600536193029,
       "edge": -0.04391236017380051,
-      "status": "PENDING",
+      "status": "VOID",
       "tank01_actual": null,
       "bref_actual": null,
       "nba_actual": null,
-      "nba_outcome": null,
-      "nba_source_url": null,
-      "verification_status": "DISCREPANCY"
+      "nba_outcome": "VOID",
+      "nba_source_url": "https://www.nba.com/game/0022600063/box-score",
+      "verification_status": "UNVERIFIED"
     },
     {
       "leg_id": "bed0a6f2-9db4-5e78-9083-dbb42ccd1008",
